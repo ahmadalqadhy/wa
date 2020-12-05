@@ -1,0 +1,1 @@
+json.partial! "api/legislators/legislator", legislator: @legislator

@@ -1,0 +1,1 @@
+json.extract! constituent, :id, :name, :age, :party

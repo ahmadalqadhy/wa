@@ -2,7 +2,8 @@ class Api::LegislatorsController < ApplicationController
     def create
         @legislator = Legislator.new(legislator_params)
         if @legislator.save
-        #   login(@user)
+            debugger
+            login(@legislator)
             render "api/legislators/show"
         else
             render json: @legislator.errors.full_messages, status: 422
@@ -22,6 +23,6 @@ class Api::LegislatorsController < ApplicationController
   private
 
   def legislator_params
-    params.require(:legislator).permit(:name, :party, :chamber)
+        params.require(:legislator).permit(:name, :party, :chamber)
   end
 end

@@ -8,6 +8,3 @@
 
 Legislator.destroy_all
 Post.destroy_all
-
-legislator01 = Legislator.create!({name: "demouser", party: "democrat", chamber: "house"})
-post01 = Post.create!({title: "first post", body: "this is the first", status: "passed-house", author_id: legislator01.id})

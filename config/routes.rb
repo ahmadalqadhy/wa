@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :legislators, only: [:create, :destroy]
     resources :constituents, only: [:create, :destroy]
-    # resource :session, only: [:create, :destroy]
+    resource :session, only: [:create, :destroy]
     resources :posts, only: [:index, :create, :show, :destroy] do
       resources :comments, only: [:index]
     end

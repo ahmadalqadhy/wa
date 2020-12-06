@@ -1,5 +1,6 @@
 import React from 'react';
 import PostItem from './posts_item';
+import { Link, NavLink } from 'react-router-dom';
 
 class PostIndex extends React.Component {
     constructor(props) {
@@ -18,22 +19,28 @@ class PostIndex extends React.Component {
     }
 
     render() {
-        // const { posts, currentUser } = this.props;
-        const { posts } = this.props;
+        const { posts, logout, currentUser, deletePost } = this.props;
         if (!this.props.posts) return null
         const backwardPosts = posts.reverse()
         return (
-          <div>
-            <ul>
-              {backwardPosts.map((post) => (
-                <PostItem
-                  key={`post${post.id}`}
-                  post={post}
-                //   currentUser={currentUser}
-                  deletePost={this.props.deletePost}
-                />
-              ))}
-            </ul>
+          <div className="background">
+              <div className="form-container">
+                <Link to="/home"><button className="loginbutton" onClick={logout}>Log Out</button></Link>
+                <br/>
+                <Link to="/create-post"><button className="loginbutton">Create A Post</button></Link>
+                <br/>
+                <h2 className="loginmessage">All Posts</h2>
+                <ul>
+                {backwardPosts.map((post) => (
+                    <PostItem
+                    key={`post${post.id}`}
+                    post={post}
+                    currentUser={currentUser}
+                    deletePost={deletePost}
+                    />
+                ))}
+                </ul>
+              </div>
           </div>
         );
     }

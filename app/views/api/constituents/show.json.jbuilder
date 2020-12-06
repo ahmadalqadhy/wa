@@ -1,1 +1,1 @@
-json.partial! "api/constituent/constituent", constituent: @constituent
+json.partial! "api/constituents/constituent", constituent: @constituent

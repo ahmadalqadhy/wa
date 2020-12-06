@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom';
 
 class PostForm extends React.Component {
     constructor(props){
@@ -27,6 +28,7 @@ class PostForm extends React.Component {
         e.preventDefault();
         const post = Object.assign({}, this.state);
         this.props.createPost(post)
+            .then(() => this.props.history.push("/posts"))
     }
 
     // componentDidUpdate() might need to live on DB
@@ -34,6 +36,7 @@ class PostForm extends React.Component {
     render (){
         return(
             <div className="modal-container">
+                <Link to="/posts"><button>Go Back to Posts</button></Link>
                 <div className="text-form-container">
                     <form onSubmit={this.handleSubmit}>
                         <input type="text"

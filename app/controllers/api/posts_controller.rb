@@ -12,7 +12,8 @@ class Api::PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        @post.author_id = 2
+        debugger
+        @post.author_id = current_user.id
         if @post.save
             render :show
         else
@@ -22,8 +23,8 @@ class Api::PostsController < ApplicationController
 
 
     def destroy
-        # @post = current_user.posts.find_by(id: params[:id])
-        @post = Post.find_by(id: params[:id])
+        @post = current_user.posts.find_by(id: params[:id])
+        # @post = Post.find_by(id: params[:id])
         # debugger
         if @post
             @post.destroy

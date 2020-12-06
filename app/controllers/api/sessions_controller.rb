@@ -1,10 +1,16 @@
 class Api::SessionsController < ApplicationController
 
   def create
-    @user = Legislator.find_by_name(params[:legislator][:name]) || Constituent.find_by_name(params[:legislator][:name])
+    @legislator = Legislator.find_by_credentials(params[:user][:name])
+    @constituent =  Constituent.find_by_credentials(params[:user][:name])
+    debugger
 
-    if @user
-      render "api/users/show"
+    if @legislator
+      login(@legislator)
+      render "api/legislators/show"
+    elsif @constituent
+      login(@constituent)
+      render "api/constituents/show"
     else
       render json: ["Invalid login info"], status: 401
     end

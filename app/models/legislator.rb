@@ -7,6 +7,8 @@ class Legislator < ApplicationRecord
     validates :chamber, inclusion: { in: %w(house senate),
         message: "%{value} is not a valid chamber option"}
 
+    after_initialize :ensure_session_token
+
     has_many :posts,
         foreign_key: :author_id,
         class_name: :Post
@@ -15,5 +17,20 @@ class Legislator < ApplicationRecord
     #     primary_key: :id,
     #     foreign_key: :author_id,
     #     class_name: :Comment 
+
+    def self.find_by_credentials(name)
+        user = Legislator.find_by(name: name)
+        return user
+    end
+
+    def reset_session_token!
+        self.session_token = SecureRandom.urlsafe_base64
+        self.save!
+        self.session_token
+    end
+
+    def ensure_session_token
+        self.session_token ||= SecureRandom.urlsafe_base64
+    end
 
 end

@@ -10,13 +10,7 @@ class PostForm extends React.Component {
             body: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.handleClick = this.handleClick.bind(this)
     }
-
-    // handleClick (e){
-    //     e.preventDefault()
-    //     this.props.closeModal()
-    // }
 
     update(field){
         return e => this.setState({

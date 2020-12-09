@@ -5,12 +5,14 @@ export const fetchPosts = () => (
     })
 )
 
-export const fetchPost = (postId) => (
-    $.ajax({
-        url: `/api/posts${postId}`,
-        method: 'GET'
-    })
-)
+export const fetchPost = (postId) => {
+    return (
+        $.ajax({
+            url: `/api/posts/${postId}`,
+            method: 'GET'
+        })
+    )
+}
 
 export const createPost = (post) => (
     $.ajax({

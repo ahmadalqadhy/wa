@@ -9,7 +9,6 @@ export const login = user => {
 }
 
 export const signupLegislators = legislator => {
-    debugger
     return(
         $.ajax({
             method: 'POST',

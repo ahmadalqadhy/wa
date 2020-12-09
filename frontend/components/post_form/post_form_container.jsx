@@ -3,7 +3,6 @@ import { createPost } from '../../actions/posts_actions'
 import PostForm from './post_form'
 
 const mSTP = ({ entities }) => ({
-    // currentUser: entities.users[session.id]
     entities
 })
 

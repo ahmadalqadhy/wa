@@ -21,10 +21,11 @@ class PostIndex extends React.Component {
     render() {
         const { posts, logout, currentUser, deletePost } = this.props;
         if (!this.props.posts) return null
+        let pages = posts.pop()
         const backwardPosts = posts.reverse()
         return (
           <div className="background">
-              <div className="form-container">
+              <div className="postpage">
                 <Link to="/home"><button className="loginbutton" onClick={logout}>Log Out</button></Link>
                 <br/>
                 <Link to="/create-post"><button className="loginbutton">Create A Post</button></Link>

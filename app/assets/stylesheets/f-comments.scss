@@ -1,0 +1,50 @@
+.comment-form{
+    float: left;
+}
+
+.comment-form-textarea{
+    outline: none;
+    resize: none;
+    width: 300px;
+    height: 75px;
+    overflow-y: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+}
+
+.comment-form-submit{
+    background-color: red;
+    height: 75px;
+    width: 100px;
+    color: whitesmoke;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.comments-container{
+    width: 500px;
+    margin-top: 20px;
+    background-color: whitesmoke;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.comment{
+    background-color: white;
+    width: 300px;
+    padding: 10px;
+    text-align: left;
+}
+
+.comment-author{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.comment-body{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-wrap: break-word;
+    width: inherit;
+}

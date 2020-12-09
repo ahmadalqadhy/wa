@@ -1,18 +1,23 @@
 class Api::PostsController < ApplicationController
-   
+
     def index
-        backward_posts = Post.all
-        @posts = backward_posts.reverse
+        # @pagy, @posts = pagy((Post.all).reverse, items: 10)
+        @pagy, @posts = pagy(Post.all, items: 10)
+        @trying = pagy_metadata(@pagy)
+        # backward_posts = Post.all
+        # @posts = backward_posts.reverse
         render :index
+        # render json: { data: @posts,
+        #        pagy: pagy_metadata(@pagy) }
     end
 
     def show
         @post = Post.find(params[:id])
+        render :show
     end
 
     def create
         @post = Post.new(post_params)
-        debugger
         @post.author_id = current_user.id
         if @post.save
             render :show
@@ -24,8 +29,6 @@ class Api::PostsController < ApplicationController
 
     def destroy
         @post = current_user.posts.find_by(id: params[:id])
-        # @post = Post.find_by(id: params[:id])
-        # debugger
         if @post
             @post.destroy
             render :show

@@ -2,7 +2,6 @@ class Api::LegislatorsController < ApplicationController
     def create
         @legislator = Legislator.new(legislator_params)
         if @legislator.save
-            debugger
             login(@legislator)
             render "api/legislators/show"
         else

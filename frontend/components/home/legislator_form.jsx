@@ -18,7 +18,6 @@ class LegislatorForm extends React.Component {
     handleLogin(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        debugger
         this.props.login(user)
             .then(() => this.props.history.push("/posts"))
     }
@@ -26,7 +25,6 @@ class LegislatorForm extends React.Component {
     handleSignup(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        debugger
         this.props.signup(user)
             .then(() => this.props.history.push("/posts"))
     }

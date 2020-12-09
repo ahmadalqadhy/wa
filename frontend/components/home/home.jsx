@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Home = () => {
     return(
         <div className="background">
-            <span className="junk">
+            <span className="form-container">
                 <h1 className="title">Bill Tracker</h1>
                 <br/>
                 <Link to="/legislator">

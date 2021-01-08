@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 const PostItem = ({post, deletePost, currentUser }) => {
     let title = post.author.chamber === "senate" ? "Sen." : "Rep."
-    let party = post.author.party === "republican" ? "(R)" : "(D)"
+    let party = post.author.party === "republican" ? "(R)" :
+    post.author.party === "democrat" ? "(D)" : "(I)"
     let action
     if (post.author_id === currentUser){
         action = <i onClick={() => deletePost(post.id)} className="far fa-trash-alt item-icon"></i>
